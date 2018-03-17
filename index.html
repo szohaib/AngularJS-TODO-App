@@ -13,7 +13,7 @@
 
             <ul>
                 <li ng-repeat="todo in todo">
-                    <span>{{todo.name}}</span><span><input type="checkbox" ng-change=" sub()" ng-model="todo.active"></span>
+                    <span>{{todo.name}}</span><span><input type="checkbox" ng-click="itemCompleted($index)" ng-model="todo.active" ></span>
                 </li>
             </ul>
 
@@ -21,6 +21,15 @@
                 <p>Items to complete {{ count }}</p>
                 {{ todo }}
                 
+            </div>
+            <div>
+                Items completed {{completedCount}}
+                <ul>
+                    <li ng-repeat="completed in completed">
+                        <span>{{completed.name}}</span><input type="checkbox" ng-click="itemTodoAgain($index)" ng-model="completed.active">
+                    </li>
+                </ul>
+                {{completed}}
             </div>
         </div>
 
